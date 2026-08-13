@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Email Spam Detection</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div class="icon">
+                ✉
+            </div>
+
+            <h1>Email Spam Detection</h1>
+
+            <p>
+                Machine Learning based Email Classification System
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <form action="/predict"
+                  method="POST">
+
+                <label for="message">
+                    Enter Email Message
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Paste your email message here..."
+                    required>{{ message }}</textarea>
+
+
+                <button type="submit">
+                    Check Email
+                </button>
+
+            </form>
+
+
+            {% if prediction %}
+
+            <div class="result
+                {% if prediction == 'SPAM EMAIL' %}
+                    spam
+                {% elif prediction == 'NOT SPAM' %}
+                    safe
+                {% else %}
+                    warning
+                {% endif %}
+            ">
+
+                {% if prediction == "SPAM EMAIL" %}
+
+                    <div class="result-icon">
+                        ⚠
+                    </div>
+
+                    <h2>SPAM EMAIL</h2>
+
+                    <p>
+                        This email appears to be spam.
+                    </p>
+
+                    <div class="confidence">
+                        Spam/Classification Confidence:
+                        <strong>{{ probability }}%</strong>
+                    </div>
+
+                {% elif prediction == "NOT SPAM" %}
+
+                    <div class="result-icon">
+                        ✓
+                    </div>
+
+                    <h2>NOT SPAM</h2>
+
+                    <p>
+                        This email appears to be legitimate.
+                    </p>
+
+                    <div class="confidence">
+                        Classification Confidence:
+                        <strong>{{ probability }}%</strong>
+                    </div>
+
+                {% else %}
+
+                    <h2>{{ prediction }}</h2>
+
+                {% endif %}
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="info-section">
+
+            <div class="info-card">
+
+                <h3>Machine Learning</h3>
+
+                <p>
+                    Uses a trained Naive Bayes classification model
+                    to identify suspicious messages.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>TF-IDF</h3>
+
+                <p>
+                    Converts email text into numerical features
+                    that can be processed by the ML model.
+                </p>
+
+            </div>
+
+
+            <div class="info-card">
+
+                <h3>Fast Detection</h3>
+
+                <p>
+                    Analyze an email message instantly through
+                    the web interface.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <footer>
+
+            <p>
+                Email Spam Detection | Machine Learning Project
+            </p>
+
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
