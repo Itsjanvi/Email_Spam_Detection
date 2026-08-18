@@ -1,55 +1,117 @@
-# 📧 Email Spam Detection System (Standard NLP)
+# 📧 Email Spam Detection
 
-An advanced, interactive Natural Language Processing (NLP) web application designed to classify incoming emails and text messages accurately into **Spam** or **Ham (Legitimate)** categories.
+A Machine Learning and NLP based web application that classifies email messages as **Spam** or **Ham (Not Spam)**.
 
----
+## 🚀 Overview
 
-## 📋 Table of Contents
-* [About the Project](#-about-the-project)
-* [Key Features](#-key-features)
-* [Tech Stack & Libraries](#️-tech-stack--libraries)
-* [Project Structure](#-project-structure)
-* [Dataset Information](#-dataset-information)
-* [How to Run Locally](#-how-to-run-locally)
-* [Usage Guide](#-usage-guide)
-* [Future Scope](#-future-scope)
-* [Contributing](#-contributing)
-* [License](#-license)
-* [Author](#-author)
+This project uses Natural Language Processing (NLP) and Machine Learning techniques to analyze email text and predict whether a message is spam or legitimate.
 
----
+The application provides a simple web interface where users can enter an email message and instantly get the prediction.
 
-## 🚀 About the Project
-Unwanted spam emails clutter inboxes and can pose security threats like phishing or malware. This project leverages Standard Natural Language Processing (NLP) techniques and Machine Learning classification algorithms (such as Naive Bayes or Logistic Regression) combined with TF-IDF vectorization to analyze text patterns and instantly filter out spam messages through an intuitive web interface.
+## ✨ Features
 
----
+* 📩 Spam and Ham email classification
+* 🧠 NLP-based text processing
+* 🔤 TF-IDF text vectorization
+* 🤖 Machine Learning based prediction
+* 🌐 Simple Flask web application
+* ⚡ Real-time email classification
 
-## 🌟 Key Features
-* **Real-time Text Classification:** Instant detection and flagging of spam or legitimate messages.
-* **Standard NLP Pipeline:** Includes text cleaning, tokenization, stop-word removal, stemming/lemmatization, and TF-IDF vectorization.
-* **Machine Learning Powered:** Trained on robust text classification datasets for high detection precision.
-* **User-Friendly Dashboard:** Clean, responsive, and modern web UI for seamless user interaction.
+## 🛠️ Tech Stack
 
----
+* **Python**
+* **Flask**
+* **Scikit-learn**
+* **Pandas**
+* **NumPy**
+* **NLTK**
+* **HTML**
+* **CSS**
 
-## 🛠️ Tech Stack & Libraries
-* **Programming Language:** Python 🐍
-* **Web Framework:** Flask
-* **NLP & Machine Learning:** Scikit-Learn, NLTK, Pandas, NumPy
-* **Frontend:** HTML5, CSS3, JavaScript
-* **Development Tools:** Git, GitHub, VS Code
+## 🔄 Workflow
 
----
+```text
+Email Text
+    ↓
+Text Preprocessing
+    ↓
+TF-IDF Vectorization
+    ↓
+Machine Learning Model
+    ↓
+Spam / Ham Prediction
+```
 
-## 📂 Project Structure
+## 📁 Project Structure
+
 ```text
 Email_Spam_Detection/
 │
-├── templates/              
-│   └── index.html          # Main HTML user interface for text input
-├── static/                 
-│   └── style.css           # Styling and design files
-├── app.py                  # Main Flask backend application server
-├── vectorizer.pkl          # Saved TF-IDF vectorizer model file
-├── model.pkl               # Serialized/saved Machine Learning model file
-└── requirements.txt        # Project dependencies list
+├── app.py
+├── train_model.py
+├── spam.csv
+├── spam_model.pkl
+├── vectorizer.pkl
+├── requirements.txt
+│
+├── templates/
+│   └── index.html
+│
+├── static/
+│   └── style.css
+│
+└── README.md
+```
+
+## ⚙️ Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Itsjanvi/Email_Spam_Detection.git
+cd Email_Spam_Detection
+```
+
+Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## ▶️ Run the Application
+
+Start the Flask application:
+
+```bash
+python app.py
+```
+
+Open your browser and visit:
+
+```text
+http://127.0.0.1:5000/
+```
+
+Enter an email message and check whether it is classified as **Spam** or **Ham**.
+
+## 🎯 Objective
+
+The main objective of this project is to demonstrate how NLP and Machine Learning can be used for automatic spam email detection.
+
+## 🔮 Future Scope
+
+* Improve model accuracy with larger datasets
+* Experiment with different Machine Learning algorithms
+* Add advanced NLP techniques
+* Deploy the application online
+* Support multiple languages
+
+## 👩‍💻 Author
+
+**Janvi**
+
+GitHub: [Itsjanvi](https://github.com/Itsjanvi)
+
+---
+
+⭐ If you find this project useful, consider giving it a star!
